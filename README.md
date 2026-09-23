@@ -1,37 +1,21 @@
-# GridBlast — AMI Disconnection Blast-Radius Twin
+# Grid Blast Radius — AMI Disconnection Consequence Model
 
-**If one smart-meter head-end is compromised, how many households can be switched
-off at once — and how much do standard defences shrink that number?**
+**If one smart-meter head-end were compromised, how many households could be switched off at once — and how much do standard defences reduce that number?**
 
-GridBlast is a defensive digital-twin that models the *consequence surface* of
-India's RDSS smart-meter rollout. It contains **no attack technique and no
-exploit code.** It is a Monte-Carlo consequence model an operator, CERT, or
-regulator uses to size a risk that the current policy debate ignores.
+Grid Blast Radius is a defensive digital twin that models the *consequence surface* of India's RDSS smart-meter rollout. It contains **no attack technique and no exploit code.** It is a Monte-Carlo consequence model for operators, regulators and CERTs to size a risk that the current policy debate does not address.
 
-> Strategic Intelligence Forecast **F4 — "The Disconnection API."**
-> The RDSS rollout is installing *remotely-executable mass household
-> disconnection* across state DISCOMs, concentrated in a handful of private AMI
-> Service Providers (AMISPs) running head-end systems. Public debate is entirely
-> about billing fairness. Almost none of it is about the fact that a compromised
-> head-end can de-energise lakhs of homes simultaneously — an IT-grade security
-> problem with OT-grade, household-granular consequences.
+> **Forecast F4 — "The Disconnection Blast Radius."**
+> The RDSS rollout is installing the ability to remotely de-energise households at national scale, concentrated in a small number of private AMI Service Providers running head-end systems. Public debate about smart meters is about prepaid billing. It is not about the fact that a compromised head-end can switch off a large share of a state's households at once, which is an IT-security problem with physical, household-level consequences.
 
 ---
 
-## Why this is neglected, not obvious
+## Why this is neglected
 
-Everyone can see the smart-meter *billing* fight (prepaid protests, rollbacks).
-The security conversation, where it exists, is about data privacy. The
-**disconnection command path** — a switch that reaches into homes — is discussed
-almost nowhere, and its blast radius is set by a variable no one is tracking:
-**vendor market concentration.** GridBlast makes that variable legible.
+The smart-meter billing argument is well covered, including prepaid protests and rollbacks. The security conversation, where it exists, is about data privacy. The **disconnect command path** is discussed almost nowhere, and the variable that sets its reach is not tracked at all: **vendor market concentration.** This model makes that variable visible.
 
 ## What it does
 
-Runs a Monte-Carlo over structural parameters — household base, rollout
-penetration, AMISP vendor shares (concentration), and four composable OT
-mitigations — and reports the distribution of households a single head-end breach
-could disconnect. It compares four canonical scenarios side by side.
+Runs a Monte-Carlo over structural parameters — household base, rollout penetration, AMISP vendor shares, and four composable operational-technology controls — and reports the distribution of households a single head-end compromise could disconnect. Four scenarios are compared side by side.
 
 ## Quickstart
 
@@ -42,9 +26,9 @@ python src/ami_twin.py
 
 Produces `assets/blast_radius.png` and `assets/summary.json`.
 
-## Real (illustrative) output
+## Results
 
-Running the shipped model on generic structural parameters:
+> **These figures are illustrative.** They come from generic structural parameters, not from any real distribution company, vendor or deployment. The point is the *shape and sensitivity* of the result, which any operator can reproduce with their own numbers. No real system is assessed here.
 
 | Scenario | Mean (M households) | P95 (M) | % of state |
 |---|---|---|---|
@@ -53,44 +37,35 @@ Running the shipped model on generic structural parameters:
 | Basic OT hygiene (segmentation + rate-limit) | 0.27 | 0.42 | 3.3% |
 | Defence-in-depth (all four controls) | 0.05 | 0.08 | 0.7% |
 
-**The headline:** concentration + full rollout with no OT controls puts a
-double-digit percentage of a state's households inside a single-breach blast
-radius. Layered controls collapse it *multiplicatively* — the case for mandating
-them before, not after, full deployment. (Numbers are illustrative; the point is
-the shape and the sensitivity, which an operator reproduces with their own inputs.)
+**What the model shows:** concentration plus full rollout with no dedicated controls places a double-digit percentage of a state's households within a single-compromise reach. Layered controls reduce it *multiplicatively*, because each control removes a share of what the previous one left. That is the case for requiring them before deployment is complete rather than after.
 
 ## Repository layout
 
 ```
-grid-blastradius/
+grid-blast-radius/
 ├── README.md
 ├── LICENSE
 ├── requirements.txt
 ├── src/
 │   └── ami_twin.py            # Monte-Carlo consequence model + scenario grid
 ├── docs/
-│   ├── ARCHITECTURE.md        # MVP + system design
-│   ├── DATA_SOURCES.md        # what to substitute for real parameters
+│   ├── ARCHITECTURE.md        # MVP and system design
+│   ├── DATA_SOURCES.md        # how to substitute real parameters
 │   ├── POLICY_BRIEF.md        # brief for CERT-In / NCIIPC / MoP / SERCs
-│   ├── ROADMAP.md             # 12-week build + beyond
-│   └── THOUGHT_LEADERSHIP.md  # X thread + LinkedIn article
+│   ├── POLICY_BRIEF.pdf       # same brief, formatted
+│   └── ROADMAP.md             # phased build plan
 └── assets/
     ├── blast_radius.png
     ├── summary.json
     └── infographic.svg
 ```
 
-## Responsible-use boundary
+## Responsible use
 
-GridBlast models **outcomes, not intrusions.** It does not describe how to
-compromise a head-end, does not identify real vendors or DISCOMs, and ships only
-synthetic structural parameters. Its purpose is to help defenders and regulators
-prioritise segmentation, disconnect-command controls, and vendor-diversity
-requirements. Use it to argue for defences, not to plan attacks.
+This model describes **outcomes, not intrusions.** It does not explain how to compromise a head-end system, does not identify real vendors or distribution companies, and ships only synthetic structural parameters. Its purpose is to help defenders and regulators prioritise segmentation, disconnect-command controls and vendor-diversity requirements, and to let an operator demonstrate that its own exposure is small.
 
 ## Primary stakeholders
 
-CERT-In, NCIIPC, Ministry of Power, State Electricity Regulatory Commissions
-(SERCs), and DISCOM / AMISP security teams.
+CERT-In, NCIIPC, Ministry of Power, State Electricity Regulatory Commissions, and DISCOM and AMISP security teams.
 
 *MIT licensed. Synthetic parameters only. Defensive concept demonstrator.*
