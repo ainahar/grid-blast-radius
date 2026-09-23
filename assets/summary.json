@@ -1,0 +1,58 @@
+{
+  "note": "Synthetic structural model. No real vendor or DISCOM data.",
+  "scenarios": [
+    {
+      "label": "Baseline (no controls)",
+      "mean_households": 1252266.8651571523,
+      "p50_households": 1240306.1289665054,
+      "p95_households": 1913596.4302011083,
+      "max_households": 1940396.745495411,
+      "pct_of_state": 14.90793887091848,
+      "params": {
+        "hhi": 0.302,
+        "penetration": 0.55,
+        "mitigation_removed_pct": 0.0
+      }
+    },
+    {
+      "label": "Full rollout (no controls)",
+      "mean_households": 2276848.8457402773,
+      "p50_households": 2255102.052666373,
+      "p95_households": 3479266.236729288,
+      "max_households": 3527994.0827189293,
+      "pct_of_state": 27.10534340166997,
+      "params": {
+        "hhi": 0.302,
+        "penetration": 1.0,
+        "mitigation_removed_pct": 0.0
+      }
+    },
+    {
+      "label": "Basic OT hygiene",
+      "mean_households": 273221.8614888332,
+      "p50_households": 270612.24631996476,
+      "p95_households": 417511.94840751454,
+      "max_households": 423359.28992627154,
+      "pct_of_state": 3.2526412082003957,
+      "params": {
+        "hhi": 0.302,
+        "penetration": 1.0,
+        "mitigation_removed_pct": 88.0
+      }
+    },
+    {
+      "label": "Defence-in-depth",
+      "mean_households": 54644.3722977667,
+      "p50_households": 54122.449263993,
+      "p95_households": 83502.38968150299,
+      "max_households": 84671.85798525438,
+      "pct_of_state": 0.6505282416400798,
+      "params": {
+        "hhi": 0.302,
+        "penetration": 1.0,
+        "mitigation_removed_pct": 97.6
+      }
+    }
+  ],
+  "headline": "Concentration + full rollout with no OT controls yields the largest single-breach blast radius; layered controls collapse it multiplicatively."
+}

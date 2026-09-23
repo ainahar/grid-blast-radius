@@ -1,0 +1,54 @@
+<svg viewBox="0 0 900 560" xmlns="http://www.w3.org/2000/svg" font-family="Helvetica, Arial, sans-serif">
+  <rect width="900" height="560" fill="#0f1720"/>
+  <text x="40" y="52" font-size="26" fill="#f4f6f8" font-weight="bold">The Disconnection Blast Radius</text>
+  <text x="40" y="80" font-size="14" fill="#8fa3b3">Forecast F4 — one head-end, how many homes go dark? Defensive consequence model.</text>
+  <line x1="40" y1="96" x2="860" y2="96" stroke="#243447" stroke-width="1.5"/>
+
+  <!-- scenario bars -->
+  <text x="40" y="128" font-size="13" fill="#8fa3b3" font-style="italic">% of a state's households inside a single-breach blast radius (illustrative)</text>
+
+  <g font-size="13" fill="#e6edf3">
+    <!-- scale: 27.1% -> full 620px -->
+    <text x="40" y="165">Full rollout, no controls</text>
+    <rect x="300" y="150" width="560" height="22" rx="3" fill="#3a1f18"/>
+    <rect x="300" y="150" width="560" height="22" rx="3" fill="#e5484d"/>
+    <text x="835" y="166" text-anchor="end" fill="#fff" font-weight="bold">27.1%</text>
+
+    <text x="40" y="205">Baseline (mid rollout)</text>
+    <rect x="300" y="190" width="560" height="22" rx="3" fill="#3a1f18"/>
+    <rect x="300" y="190" width="308" height="22" rx="3" fill="#e5734d"/>
+    <text x="618" y="206" fill="#fff" font-weight="bold">14.9%</text>
+
+    <text x="40" y="245">Basic OT hygiene</text>
+    <rect x="300" y="230" width="560" height="22" rx="3" fill="#12261c"/>
+    <rect x="300" y="230" width="68" height="22" rx="3" fill="#46a758"/>
+    <text x="378" y="246" fill="#7fd18f" font-weight="bold">3.3%</text>
+
+    <text x="40" y="285">Defence-in-depth</text>
+    <rect x="300" y="270" width="560" height="22" rx="3" fill="#12261c"/>
+    <rect x="300" y="270" width="15" height="22" rx="3" fill="#46a758"/>
+    <text x="325" y="286" fill="#7fd18f" font-weight="bold">0.7%</text>
+  </g>
+
+  <!-- key insight -->
+  <rect x="40" y="315" width="400" height="150" rx="8" fill="#16212c" stroke="#243447"/>
+  <text x="60" y="343" font-size="15" fill="#f4f6f8" font-weight="bold">The variable nobody tracks</text>
+  <text x="60" y="370" font-size="13" fill="#c3d0db">Blast radius is set by VENDOR</text>
+  <text x="60" y="390" font-size="13" fill="#c3d0db">CONCENTRATION — not attacker skill.</text>
+  <text x="60" y="414" font-size="13" fill="#c3d0db">A few AMISPs run most of a state's</text>
+  <text x="60" y="434" font-size="13" fill="#c3d0db">meters. One breach = one vendor's</text>
+  <text x="60" y="454" font-size="13" fill="#e5734d" font-weight="bold">entire footprint.</text>
+
+  <rect x="460" y="315" width="400" height="150" rx="8" fill="#16212c" stroke="#243447"/>
+  <text x="480" y="343" font-size="15" fill="#f4f6f8" font-weight="bold">Defence-in-depth multiplies</text>
+  <text x="480" y="370" font-size="13" fill="#c3d0db">Four modest controls compose:</text>
+  <text x="480" y="392" font-size="12" fill="#8fa3b3">segmentation · rate-limit · signed commands · auto-halt</text>
+  <text x="480" y="424" font-size="26" fill="#46a758" font-weight="bold">-90%+</text>
+  <text x="560" y="424" font-size="13" fill="#c3d0db">blast radius, because each removes</text>
+  <text x="560" y="442" font-size="13" fill="#c3d0db">a fraction of what the last left.</text>
+
+  <line x1="40" y1="490" x2="860" y2="490" stroke="#243447" stroke-width="1.5"/>
+  <text x="40" y="514" font-size="12" fill="#8fa3b3">STAKEHOLDERS</text>
+  <text x="40" y="534" font-size="13" fill="#e6edf3">CERT-In · NCIIPC · Ministry of Power · SERCs · DISCOM / AMISP security teams</text>
+  <text x="40" y="554" font-size="11" fill="#5f7488" font-style="italic">Defensive model — consequences only, no attack technique · vendor diversity = a security control</text>
+</svg>
